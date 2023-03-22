@@ -153,6 +153,9 @@ class HBNBCommand(cmd.Cmd):
                     continue
 
             kwargs[key] = value
+        if class_name not in HBNBCommand.classes:
+            print("** class doesn't exist **")
+            return
 
         instance = HBNBCommand.classes[args[0]](**kwargs)
         instance.save()
